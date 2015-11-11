@@ -13,6 +13,8 @@
 		CC1041911BF384FF00120B9C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1041891BF3642B00120B9C /* Parser.swift */; };
 		CC1041921BF3850300120B9C /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10418D1BF36F1500120B9C /* GlobalConstants.swift */; };
 		CC1041931BF3863200120B9C /* Expressions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC10418B1BF367F600120B9C /* Expressions.swift */; };
+		CC65B0941BF3FBDB0098BA31 /* CalculatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65B0931BF3FBDB0098BA31 /* CalculatorUtils.swift */; };
+		CC65B0951BF4018A0098BA31 /* CalculatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC65B0931BF3FBDB0098BA31 /* CalculatorUtils.swift */; };
 		CC8A7FE81BEF00E900176D1A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8A7FE71BEF00E900176D1A /* AppDelegate.swift */; };
 		CC8A7FEA1BEF00E900176D1A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8A7FE91BEF00E900176D1A /* ViewController.swift */; };
 		CC8A7FED1BEF00E900176D1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC8A7FEB1BEF00E900176D1A /* Main.storyboard */; };
@@ -35,6 +37,7 @@
 		CC1041891BF3642B00120B9C /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		CC10418B1BF367F600120B9C /* Expressions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expressions.swift; sourceTree = "<group>"; };
 		CC10418D1BF36F1500120B9C /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
+		CC65B0931BF3FBDB0098BA31 /* CalculatorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorUtils.swift; sourceTree = "<group>"; };
 		CC8A7FE21BEF00E900176D1A /* Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC8A7FE61BEF00E900176D1A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC8A7FE71BEF00E900176D1A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 				CC1041891BF3642B00120B9C /* Parser.swift */,
 				CC10418B1BF367F600120B9C /* Expressions.swift */,
 				CC10418D1BF36F1500120B9C /* GlobalConstants.swift */,
+				CC65B0931BF3FBDB0098BA31 /* CalculatorUtils.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC10418C1BF367F600120B9C /* Expressions.swift in Sources */,
+				CC65B0941BF3FBDB0098BA31 /* CalculatorUtils.swift in Sources */,
 				CC10418A1BF3642B00120B9C /* Parser.swift in Sources */,
 				CC8A7FEA1BEF00E900176D1A /* ViewController.swift in Sources */,
 				CC10418E1BF36F1500120B9C /* GlobalConstants.swift in Sources */,
@@ -238,6 +243,7 @@
 			files = (
 				CC1041911BF384FF00120B9C /* Parser.swift in Sources */,
 				CC1041921BF3850300120B9C /* GlobalConstants.swift in Sources */,
+				CC65B0951BF4018A0098BA31 /* CalculatorUtils.swift in Sources */,
 				CC8A7FFE1BEF00EA00176D1A /* CalculatorTests.swift in Sources */,
 				CC1041931BF3863200120B9C /* Expressions.swift in Sources */,
 			);

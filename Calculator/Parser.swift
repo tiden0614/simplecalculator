@@ -117,7 +117,7 @@ public class Parser {
     // factor -> number | "(" expression ")" | function
     func _factor() -> Expression? {
         var result: Expression
-        if next().rangeOfString("^[0-9]+(\\.[0-9]+)?$", options: .RegularExpressionSearch) != nil {
+        if Utils.isNumber(next()) {
             result = factor(child: number(value: NSNumberFormatter().numberFromString(next())!.doubleValue))
             consume()
         } else if next() == GlobalConstants.Operators.LPRE {
@@ -146,7 +146,7 @@ public class Parser {
         var identifier = ""
         
         // find the identifier
-        if next().rangeOfString("^[a-zA-Z][a-zA-Z0-9]+$", options: .RegularExpressionSearch) != nil {
+        if Utils.isIDentifier(next()) {
             identifier = next()
             consume()
         } else {

@@ -27,11 +27,23 @@ class ViewController: UIViewController {
                 printDisplay()
             }
         case "0":
+            // if the last thing on the stack is a number when we are editting the current
+            // number, just pop it and concatenate with the currentInputString
+            if Utils.isNumber(tokenStack.last) {
+                currentInputString = tokenStack.last! + currentInputString
+                tokenStack.removeLast()
+            }
             if currentInputString.isEmpty || currentInputString != "0" {
                 currentInputString += "0"
                 printDisplay()
             }
         case "1", "2", "3", "4", "5", "6", "7", "8", "9":
+            // if the last thing on the stack is a number when we are editting the current
+            // number, just pop it and concatenate with the currentInputString
+            if Utils.isNumber(tokenStack.last) {
+                currentInputString = tokenStack.last! + currentInputString
+                tokenStack.removeLast()
+            }
             currentInputString += buttonTitle
             printDisplay()
         case "(", ")", ",":
@@ -66,6 +78,13 @@ class ViewController: UIViewController {
         
         push()
         tokenStack.append(operation)
+        
+        // push a left parenthesis when approperiate reminding the user to use parenthesises
+        if operation != GlobalConstants.Operators.PLUS && operation != GlobalConstants.Operators.MINU &&
+            operation != GlobalConstants.Operators.MULT && operation != GlobalConstants.Operators.DIVI {
+                tokenStack.append("(")
+        }
+
         printDisplay()
         
         printStack()
@@ -75,7 +94,8 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         push()
         
-        // TODO check the stack before parsing; remove invalild trailing 
+        preProcessStack()
+        
         if let expr = parser.parse(tokenStack) {
             if let evalResult = expr.evaluate() {
                 history.text! = printDisplay()
@@ -99,10 +119,10 @@ class ViewController: UIViewController {
         } else {
             if !tokenStack.isEmpty {
                 var last = tokenStack.removeLast()
-                if last.rangeOfString("^[0-9]+(\\.[0-9]*)?$", options: .RegularExpressionSearch) != nil {
+                if Utils.isNumber(last) {
+                    // if the top of the stack is a number, pop the number and delete its last
                     last.removeAtIndex(last.endIndex.predecessor())
                     currentInputString = last
-                    
                 }
             }
         }
@@ -112,6 +132,14 @@ class ViewController: UIViewController {
     
     private func printStack() {
         println(tokenStack)
+    }
+    
+    private func preProcessStack() {
+        // only numbers and right parenthesis are allowed at the very end of the stack
+        // everything else should be poped up
+        while !Utils.isNumberOrRightPren(tokenStack.last) {
+            tokenStack.removeLast()
+        }
     }
 }
 
