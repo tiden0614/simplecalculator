@@ -47,8 +47,11 @@ class CalculatorTests: XCTestCase {
         ]
         
         let parser = Parser()
-        let parsedResult = parser.parse(testInput)
-        println(parsedResult.evaluate())
+        if let parsedResult = parser.parse(testInput) {
+            if let eval = parsedResult.evaluate() {
+                println(eval)
+            }
+        }
     }
     
 }

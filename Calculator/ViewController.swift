@@ -34,13 +34,9 @@ class ViewController: UIViewController {
         case "1", "2", "3", "4", "5", "6", "7", "8", "9":
             currentInputString += buttonTitle
             printDisplay()
-        case "(":
+        case "(", ")", ",":
             push()
-            tokenStack.append("(")
-            printDisplay()
-        case ")":
-            push()
-            tokenStack.append(")")
+            tokenStack.append(buttonTitle)
             printDisplay()
         case "π":
             currentInputString = "\(M_PI)"
@@ -79,21 +75,22 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         push()
         
-        // TODO check the stack before parsing; remove invalild trailing oprs
-        
-        let expr = parser.parse(tokenStack)
-        if let evalResult = expr.evaluate() {
-            history.text! = printDisplay()
-            display.text! = "\(evalResult)"
+        // TODO check the stack before parsing; remove invalild trailing 
+        if let expr = parser.parse(tokenStack) {
+            if let evalResult = expr.evaluate() {
+                history.text! = printDisplay()
+                display.text! = "\(evalResult)"
+            }
+            printStack()
         }
-        printStack()
+
     }
     
     
     @IBAction func clear() {
-        currentInputString = "0"
+        currentInputString = ""
         tokenStack.removeAll(keepCapacity: true)
-        printDisplay()
+        display.text! = "0"
     }
     
     @IBAction func backspace() {

@@ -20,5 +20,6 @@ public struct GlobalConstants {
         static let LPRE = "("
         static let RPRE = ")"
         static let COMM = ","
+        static let POW = "pow"
     }
 }
